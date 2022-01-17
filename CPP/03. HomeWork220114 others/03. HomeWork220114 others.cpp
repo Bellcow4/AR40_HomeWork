@@ -69,10 +69,7 @@ void Cut(const char* _Sorce, int _Start, int _End, char* _Result)
 	}
 }
 
-void TextChange(char* _Text, const char* _Prev, const char* _Next)
-{
-
-}
+void TextChange(char* _Text, const char* _Prev, const char* _Next);
 
 int main()
 {
@@ -104,14 +101,51 @@ int main()
 	}
 
 	{
-		char Text[100] = "aa, bb, aaa";
+		char Text[100] = "aa, bb, aa";
 		"aa, bb, aa, bb aa aa aa aaaaaaa ccdffeds";
 
-		TextChange(Text, "aa", "fff");
+
+		char* temp = (char*)malloc(sizeof(char) * 4);
+
+		temp[0] = { 0 };
+		temp[1] = { 1 };
+		temp[2] = { 2 };
+		temp[3] = { 3 };
+
+		char* test = &temp[1];
+		char ab = *test;
+
+		int a = sizeof(char);
+
+		free(temp);
+
+		TextChange(Text, "aa", "ff");
 		// "fff, bb, fff, bb fff fff fff fffffffffa ccdffeds";
 		// aa| bb| cc| dd
 		printf_s(Text);
-		int a = 0;
+		int va = 0;
 	}
 }
 
+void TextChange(char* _Text, const char* _Prev, const char* _Next)
+{
+	int PrevStrLength = strlen(_Prev);
+
+	char* temp = (char*)malloc(sizeof(char) * PrevStrLength);
+
+	for (int i = 0; i < PrevStrLength; i += 1)
+	{
+		temp[i] = _Prev[i];
+	}
+
+	for (int i = 0; 0 != _Text[i]; i += 1)
+	{
+		if (_Text[i] == temp[0] && _Text[i + 1] == temp[1])
+		{
+			_Text[i] = _Next[0];
+			_Text[i+1] = _Next[1];
+		}
+	}
+
+	free(temp);
+}
