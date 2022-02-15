@@ -11,6 +11,7 @@ class GameArray
 {
 private:
     int Size_;
+    int PrevSize_;
     DataType* ArrData_;
     DataType* TempArr_;
 public:
@@ -82,14 +83,22 @@ public:
     {
         Release();
         ArrData_ = new DataType[_Size];
+        PrevSize_ = Size_;
         Size_ = _Size;
 
         if (nullptr != TempArr_)
         {
-            for (size_t i = 0; i < Size_; i++)
+            /*for (size_t i = 0; i < Size_; i++)
+            {
+                ArrData_[i] = TempArr_[i];
+            }*/
+
+            for (size_t i = 0; i < PrevSize_; i++)
             {
                 ArrData_[i] = TempArr_[i];
             }
+
+
             delete[] TempArr_;
             TempArr_ = nullptr;
         }
@@ -100,6 +109,7 @@ public:
         : ArrData_(nullptr)
         , TempArr_(nullptr)
         , Size_(0)
+        , PrevSize_(0)
     {
         ReSize(_Size);
     }
@@ -114,7 +124,7 @@ int main()
 {
     _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 
-    GameArray NewArray = GameArray(13);
+    GameArray NewArray = GameArray(3);
 
     int Size = sizeof(GameArray);
 
