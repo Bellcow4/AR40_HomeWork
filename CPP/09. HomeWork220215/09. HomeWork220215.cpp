@@ -114,13 +114,13 @@ int main()
 {
     _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 
-    GameArray NewArray = GameArray(10);
+    GameArray NewArray = GameArray(13);
 
     int Size = sizeof(GameArray);
 
     for (size_t i = 0; i < NewArray.GetSize(); i++)
     {
-        NewArray[i] = i;
+        NewArray[i] = i+1;
     }
 
     for (size_t i = 0; i < NewArray.GetSize(); i++)
