@@ -11,7 +11,7 @@ class GameArray
 {
 private:
     int Size_;
-    int PrevSize_;
+    //int PrevSize_;
     DataType* ArrData_;
     DataType* TempArr_;
 public:
@@ -83,21 +83,15 @@ public:
     {
         Release();
         ArrData_ = new DataType[_Size];
-        PrevSize_ = Size_;
+        //PrevSize_ = Size_;
         Size_ = _Size;
 
         if (nullptr != TempArr_)
         {
-            /*for (size_t i = 0; i < Size_; i++)
-            {
-                ArrData_[i] = TempArr_[i];
-            }*/
-
-            for (size_t i = 0; i < PrevSize_; i++)
+            for (size_t i = 0; i < Size_; i++)
             {
                 ArrData_[i] = TempArr_[i];
             }
-
 
             delete[] TempArr_;
             TempArr_ = nullptr;
@@ -109,7 +103,7 @@ public:
         : ArrData_(nullptr)
         , TempArr_(nullptr)
         , Size_(0)
-        , PrevSize_(0)
+        //, PrevSize_(0)
     {
         ReSize(_Size);
     }
@@ -124,7 +118,7 @@ int main()
 {
     _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 
-    GameArray NewArray = GameArray(3);
+    GameArray NewArray = GameArray(10);
 
     int Size = sizeof(GameArray);
 
@@ -138,7 +132,15 @@ int main()
         std::cout << NewArray[i] << std::endl;
     }
 
-    NewArray.ReSize(20);
+    NewArray.ReSize(5);
+    std::cout << "리사이즈" << std::endl;
+
+    for (size_t i = 0; i < NewArray.GetSize(); i++)
+    {
+        std::cout << NewArray[i] << std::endl;
+    }
+
+    NewArray.ReSize(25);
     std::cout << "리사이즈" << std::endl;
 
     for (size_t i = 0; i < NewArray.GetSize(); i++)
