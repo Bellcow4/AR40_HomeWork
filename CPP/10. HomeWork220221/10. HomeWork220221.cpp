@@ -52,8 +52,7 @@ int main()
 		}
 	}
 
-	std::cout << sizeof(ConsoleObject) << std::endl;
-
+	
 	ConsoleScreen::Destroy();
 	delete NewBody;
 	delete NewHead;
