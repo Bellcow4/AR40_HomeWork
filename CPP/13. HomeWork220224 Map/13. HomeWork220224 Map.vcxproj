@@ -21,10 +21,9 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{4c43f880-08ac-48f1-8b3b-d99dd8369866}</ProjectGuid>
-    <RootNamespace>My12HomeWork220224</RootNamespace>
+    <ProjectGuid>{3d4627d2-236d-48c1-a22e-c6ddbdf56c3d}</ProjectGuid>
+    <RootNamespace>My13HomeWork220224Map</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>12. HomeWork220223</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -140,7 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="12. HomeWork220224.cpp" />
+    <ClCompile Include="13. HomeWork220224 Map.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
